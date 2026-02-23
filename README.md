@@ -1,8 +1,8 @@
 # Smart Recipe Generator 🍽️
 
-A premium, production-quality Single-Page Application (SPA) that suggests recipes based on your available ingredients — entered as text or detected from a photo using AI.
+A beautiful, 100% vegetarian Single-Page Application (SPA) that helps you cook delicious meals with the ingredients you already have. Type your ingredients or snap a photo of your fridge, and our Smart Recipe Generator will instantly score and suggest the best recipes tailored to your kitchen!
 
-**Live URL**: _TBD after Vercel deployment_
+🟢 **Live Website**: [https://smartrecipes.vercel.app/](https://smartrecipes.vercel.app/)
 
 ---
 
@@ -102,16 +102,16 @@ No build step, no environment variables required. `vercel.json` is pre-configure
 
 ## 🍳 Recipe Database
 
-25 recipes spanning:
+25 entirely vegetarian recipes spanning:
 
 | Cuisine | Examples |
 |---|---|
 | 🇮🇹 Italian | Spaghetti Aglio e Olio, Margherita Pizza, Mushroom Risotto, Caprese Salad |
-| 🇮🇳 Indian | Chicken Tikka Masala, Butter Chicken, Chickpea Curry, Lentil Dal |
+| 🇮🇳 Indian | Paneer Tikka Masala, Butter Paneer, Chickpea Curry, Lentil Dal |
 | 🇲🇽 Mexican | Black Bean Tacos |
-| 🌍 Mediterranean | Greek Salad, Lemon Garlic Salmon, Shakshuka, Hummus & Pita |
-| 🌏 Asian | Vegetable Fried Rice, Beef Stir Fry, Tom Yum Soup, Shrimp Pad Thai, Kimchi Fried Rice |
-| 🇺🇸 American | Avocado Toast, Caesar Salad, Banana Pancakes, Buddha Bowl, Classic Burger, Vegetable Soup, Chocolate Lava Cake |
+| 🌍 Mediterranean | Greek Salad, Lemon Garlic Asparagus, Shakshuka, Hummus & Pita |
+| 🌏 Asian | Vegetable Fried Rice, Tofu Stir Fry, Vegan Tom Yum Soup, Tofu Pad Thai, Kimchi Fried Rice |
+| 🇺🇸 American | Avocado Toast, Caesar Salad (vegetarian), Banana Pancakes, Buddha Bowl, Black Bean Burger, Vegetable Soup, Chocolate Lava Cake |
 
 Each recipe includes: ingredients list, step-by-step instructions, nutritional info (calories/protein/carbs/fat/fiber), difficulty level, cook time, and dietary tags.
 
