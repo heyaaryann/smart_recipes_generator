@@ -128,12 +128,12 @@ async function detectIngredientsMock(imageFile) {
     // Return common kitchen ingredients as demo
     const commonSets = [
         ['tomato', 'onion', 'garlic', 'bell pepper'],
-        ['chicken breast', 'garlic', 'lemon', 'olive oil'],
+        ['paneer', 'garlic', 'lemon', 'olive oil'],
         ['egg', 'butter', 'milk', 'flour'],
         ['carrot', 'potato', 'celery', 'onion'],
         ['avocado', 'tomato', 'lime', 'cilantro'],
         ['mushroom', 'garlic', 'olive oil', 'thyme'],
-        ['salmon', 'lemon', 'garlic', 'butter'],
+        ['tofu', 'lemon', 'garlic', 'butter'],
         ['broccoli', 'garlic', 'soy sauce', 'sesame oil']
     ];
 
