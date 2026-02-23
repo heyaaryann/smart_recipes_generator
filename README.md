@@ -2,7 +2,7 @@
 
 A premium, production-quality Single-Page Application (SPA) that suggests recipes based on your available ingredients — entered as text or detected from a photo using AI.
 
-**Live URL**: _TBD after Netlify deployment_
+**Live URL**: _TBD after Vercel deployment_
 
 ---
 
@@ -82,15 +82,21 @@ Smart_recipe_generator/
 
 ---
 
-## 🚀 Deployment (Netlify)
+## 🚀 Deployment (Vercel)
 
-1. Push project to a GitHub repository
-2. Go to [Netlify](https://app.netlify.com) → "Add new site" → "Import from Git"
-3. Select your repo, leave build command empty (static site)
-4. Set **Publish directory** to `/` (root)
-5. Click **Deploy** — live in ~30 seconds ✅
+### Option A — Vercel Dashboard (recommended)
+1. Push project to GitHub
+2. Go to [vercel.com](https://vercel.com) → **New Project** → **Import from GitHub**
+3. Select `smart_recipes_generator`, leave all settings as default
+4. Click **Deploy** — live in ~30 seconds ✅
 
-No build step, no environment variables required.
+### Option B — Vercel CLI
+```bash
+npm install -g vercel
+vercel
+```
+
+No build step, no environment variables required. `vercel.json` is pre-configured.
 
 ---
 
@@ -119,4 +125,4 @@ Each recipe includes: ingredients list, step-by-step instructions, nutritional i
 - **Google Fonts** — Inter + Poppins
 - **Google Cloud Vision API** — Image ingredient recognition (free tier)
 - **LocalStorage** — Client-side data persistence
-- **Netlify** — Static site hosting (free tier)
+- **Vercel** — Static site hosting (free tier)
