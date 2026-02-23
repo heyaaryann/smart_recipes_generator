@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Recipe Generator — Cook with what you have</title>
+  <meta name="description" content="Discover delicious recipes based on the ingredients you already have. Upload a photo or type your ingredients and get instant recipe suggestions with full nutritional info." />
+  <meta property="og:title" content="Smart Recipe Generator" />
+  <meta property="og:description" content="Cook smarter — get recipe suggestions from your available ingredients." />
+  <meta name="theme-color" content="#FF6B35" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════════════════ -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <a href="#" class="logo" aria-label="Smart Recipe Generator Home">
+      <span class="logo__icon">🍽️</span>
+      <span class="logo__text"><span>Smart</span>Recipes</span>
+    </a>
+    <nav class="header-actions" aria-label="Header navigation">
+      <a href="#ingredient-section" class="btn btn--secondary" style="font-size:13px">🧂 Add Ingredients</a>
+      <a href="#tab-favorites" class="btn btn--secondary" id="fav-header-btn" style="font-size:13px">❤️ Saved</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════════ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="container hero__content">
+    <div class="hero__badge" aria-label="Feature highlight">
+      ✨ AI-Powered Ingredient Recognition
+    </div>
+    <h1 id="hero-title" class="hero__title">
+      Cook with what<br/>
+      you <span class="highlight">already have</span>
+    </h1>
+    <p class="hero__sub">
+      Type your ingredients or snap a photo — we'll instantly suggest
+      delicious recipes matched to your kitchen.
+    </p>
+    <div class="hero__stats" aria-label="Application statistics">
+      <div class="hero__stat">
+        <div class="hero__stat-num">25+</div>
+        <div class="hero__stat-label">Recipes</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-num">6</div>
+        <div class="hero__stat-label">Cuisines</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-num">∞</div>
+        <div class="hero__stat-label">Combinations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TABS
+════════════════════════════════════════════════════════════ -->
+<div class="tabs-bar" role="tablist" aria-label="Main sections">
+  <button class="tab-btn tab-btn--active" data-tab="search" role="tab" aria-selected="true" aria-controls="tab-search" id="tab-btn-search">
+    🔍 Find Recipes
+  </button>
+  <button class="tab-btn" data-tab="favorites" role="tab" aria-selected="false" aria-controls="tab-favorites" id="tab-btn-favorites">
+    ❤️ Favorites
+  </button>
+  <button class="tab-btn" data-tab="suggestions" role="tab" aria-selected="false" aria-controls="tab-suggestions" id="tab-btn-suggestions">
+    💡 For You
+  </button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SEARCH TAB
+════════════════════════════════════════════════════════════ -->
+<div id="tab-search" class="tab-panel tab-panel--active" role="tabpanel" aria-labelledby="tab-btn-search">
+  <div class="main-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="ingredient-section" aria-label="Ingredient input and filters">
+
+      <!-- Ingredient Input -->
+      <section aria-labelledby="ing-heading">
+        <h2 id="ing-heading" class="section-heading">🧂 Your Ingredients</h2>
+        <div class="ingredient-input-group">
+          <input type="text" id="ingredient-input"
+            placeholder="e.g. chicken, garlic, lemon…"
+            aria-label="Enter an ingredient"
+            autocomplete="off" />
+          <button id="add-ingredient-btn" class="btn btn--primary" style="padding:10px 14px;" aria-label="Add ingredient">+</button>
+        </div>
+        <div id="ingredient-pills" aria-label="Added ingredients" aria-live="polite"></div>
+
+        <!-- Quick Add Chips -->
+        <p class="section-heading" style="margin-bottom:8px;">⚡ Quick Add</p>
+        <div class="quick-chips" role="group" aria-label="Quick add common ingredients">
+          <button class="quick-chip" data-ingredient="garlic" aria-label="Add garlic">🧄 Garlic</button>
+          <button class="quick-chip" data-ingredient="tomato" aria-label="Add tomato">🍅 Tomato</button>
+          <button class="quick-chip" data-ingredient="onion" aria-label="Add onion">🧅 Onion</button>
+          <button class="quick-chip" data-ingredient="egg" aria-label="Add egg">🥚 Egg</button>
+          <button class="quick-chip" data-ingredient="chicken breast" aria-label="Add chicken">🍗 Chicken</button>
+          <button class="quick-chip" data-ingredient="olive oil" aria-label="Add olive oil">🫒 Olive Oil</button>
+          <button class="quick-chip" data-ingredient="rice" aria-label="Add rice">🍚 Rice</button>
+          <button class="quick-chip" data-ingredient="lemon" aria-label="Add lemon">🍋 Lemon</button>
+          <button class="quick-chip" data-ingredient="butter" aria-label="Add butter">🧈 Butter</button>
+          <button class="quick-chip" data-ingredient="mushroom" aria-label="Add mushroom">🍄 Mushroom</button>
+        </div>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- Image Upload -->
+      <section aria-labelledby="img-heading">
+        <h2 id="img-heading" class="section-heading">📸 Detect from Photo</h2>
+        <div id="upload-zone" class="upload-zone" role="button" tabindex="0" aria-label="Upload a photo of your ingredients">
+          <img id="upload-preview" src="" alt="Uploaded ingredient photo preview" />
+          <div class="upload-zone__icon">📷</div>
+          <p class="upload-zone__text">
+            <strong>Click or drag & drop</strong> an image<br/>
+            <span style="font-size:11px; color: var(--clr-text-3);">Works best with clear ingredient shots</span>
+          </p>
+        </div>
+        <p id="upload-status" aria-live="polite" aria-atomic="true"></p>
+        <input type="file" id="image-input" accept="image/*" class="visually-hidden" aria-label="Select image file" />
+
+        <div class="api-key-group">
+          <label for="vision-api-key">Google Vision API Key <em>(optional)</em></label>
+          <input type="password" id="vision-api-key" placeholder="AIza…" autocomplete="off" spellcheck="false" />
+          <p class="api-key-note">
+            Leave blank to use smart demo mode.<br/>
+            <a href="https://cloud.google.com/vision/docs/setup" target="_blank" rel="noopener" style="color:var(--clr-accent);">Get your free key →</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- Filters -->
+      <section aria-labelledby="filter-heading">
+        <h2 id="filter-heading" class="section-heading">🎛️ Filters</h2>
+
+        <div class="filter-group">
+          <label>Dietary Preferences</label>
+          <div class="dietary-options" role="group" aria-label="Dietary preference filters">
+            <input type="checkbox" id="diet-veg" class="dietary-checkbox" data-dietary="vegetarian" />
+            <label for="diet-veg" class="dietary-label">🌿 Vegetarian</label>
+
+            <input type="checkbox" id="diet-vegan" class="dietary-checkbox" data-dietary="vegan" />
+            <label for="diet-vegan" class="dietary-label">🌱 Vegan</label>
+
+            <input type="checkbox" id="diet-gf" class="dietary-checkbox" data-dietary="gluten-free" />
+            <label for="diet-gf" class="dietary-label">🌾 Gluten-Free</label>
+
+            <input type="checkbox" id="diet-df" class="dietary-checkbox" data-dietary="dairy-free" />
+            <label for="diet-df" class="dietary-label">🥛 Dairy-Free</label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label for="difficulty-filter">Difficulty</label>
+          <select id="difficulty-filter" class="filter-select" aria-label="Filter by difficulty">
+            <option value="all">All Levels</option>
+            <option value="Easy">🟢 Easy</option>
+            <option value="Medium">🟡 Medium</option>
+            <option value="Hard">🔴 Hard</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="time-filter">Max Cook Time</label>
+          <select id="time-filter" class="filter-select" aria-label="Filter by max cooking time">
+            <option value="0">Any time</option>
+            <option value="15">⚡ Under 15 min</option>
+            <option value="30">🕐 Under 30 min</option>
+            <option value="45">🕐 Under 45 min</option>
+            <option value="60">🕐 Under 1 hour</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="sort-filter">Sort By</label>
+          <select id="sort-filter" class="filter-select" aria-label="Sort recipes by">
+            <option value="match">🎯 Best Match</option>
+            <option value="time">⏱ Quickest First</option>
+            <option value="difficulty">🟢 Easiest First</option>
+            <option value="calories">🔥 Lowest Calories</option>
+          </select>
+        </div>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- CTAs -->
+      <div class="sidebar-ctas">
+        <button id="generate-btn" class="btn btn--generate" aria-label="Generate recipe suggestions based on your ingredients">
+          🍳 Find Recipes
+        </button>
+        <button id="clear-btn" class="btn btn--secondary" aria-label="Clear all ingredients and results">
+          🗑 Clear All
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- RESULTS -->
+    <main class="results-area" id="results-section" aria-label="Recipe results">
+      <div class="results-header">
+        <h2>Recipes</h2>
+        <span id="result-count" aria-live="polite" aria-atomic="true">25 recipes available</span>
+      </div>
+      <div id="recipe-grid" aria-label="Recipe cards" aria-live="polite">
+        <!-- Cards rendered by JS -->
+      </div>
+    </main>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     FAVORITES TAB
+════════════════════════════════════════════════════════════ -->
+<div id="tab-favorites" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-favorites">
+  <div style="padding: 24px 24px 8px;">
+    <h2 style="font-size:22px;">❤️ Saved Recipes</h2>
+    <p style="color:var(--clr-text-2); font-size:14px; margin-top:6px;">Your personal recipe collection.</p>
+  </div>
+  <div id="favorites-list" aria-label="Saved recipes list" aria-live="polite">
+    <!-- Rendered by JS -->
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SUGGESTIONS TAB
+════════════════════════════════════════════════════════════ -->
+<div id="tab-suggestions" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-suggestions">
+  <div style="padding: 24px 24px 8px;">
+    <h2 style="font-size:22px;">💡 Suggested For You</h2>
+    <p style="color:var(--clr-text-2); font-size:14px; margin-top:6px;">Personalised based on your ratings and favorites.</p>
+  </div>
+  <div id="suggestions-grid" aria-label="Suggested recipes" aria-live="polite">
+    <!-- Rendered by JS -->
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     MODAL OVERLAY
+════════════════════════════════════════════════════════════ -->
+<div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Recipe detail">
+  <!-- Rendered dynamically by JS -->
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <p>🍽️ <strong>Smart Recipe Generator</strong> — Built with ❤️ · 
+      Powered by ingredient matching &amp; 
+      <a href="https://cloud.google.com/vision" target="_blank" rel="noopener">Google Vision AI</a>
+    </p>
+    <p style="margin-top:8px; font-size:12px;">
+      25+ recipes · 6 cuisines · Nutritional info · Mobile-friendly
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS  (order matters!)
+════════════════════════════════════════════════════════════ -->
+<script src="js/database.js"></script>
+<script src="js/matching.js"></script>
+<script src="js/vision.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/ui.js"></script>
+<script>
+  // Bridge: expose ui.js functions to app.js scope
+  window._renderFavoritesPanel = renderFavoritesPanel;
+</script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
